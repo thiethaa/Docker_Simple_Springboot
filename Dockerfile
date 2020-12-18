@@ -1,4 +1,6 @@
 FROM openjdk:8
-ADD target/student_docker.jar student_docker.jar
+MAINTAINER Name tyaniceluv89@gmail.com
+ARG JAR_FILE
+ADD ${JAR_FILE} student-docker-maven.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","student_docker.jar"]
+ENTRYPOINT ["java","-jar","student-docker-maven.jar"]
