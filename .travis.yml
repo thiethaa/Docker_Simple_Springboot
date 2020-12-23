@@ -2,11 +2,23 @@ language: java
 jdk:
   - openjdk8
 
-services: docker
+services:
+  - docker
 
-script: ./mvnw clean install
+# Pre-testing installs
+install:
+  - echo "installed nothing....."
 
-jobs:
-  include:
-    - stage: Test
-      script: ./mvnw clean install
+# Scripts to be run such as tests
+before_script:
+  - echo "before script is nothiiiiing...."
+
+script:
+  - ./mvnw clean install
+  - docker --version # print the version for logging
+  - docker build -t student-docker-maven .
+  - docker tag student-docker-maven thiethaa/student-docker-maven:v.1.2.3
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push thiethaa/student-docker-maven:v.1.2.3
