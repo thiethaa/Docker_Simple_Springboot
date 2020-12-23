@@ -16,9 +16,9 @@ before_script:
 script:
   - mvn clean install
   - docker --version # print the version for logging
-  - docker build -t student-docker-maven-travis-ci .
-  - docker tag student-docker-maven-travis-ci thiethaa/student-docker-maven-travis-ci:v.1.2.3
+  - docker build -t student-docker-maven .
+  - docker tag student-docker-maven thiethaa/student-docker-maven:v.1.3.3
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push thiethaa/student-docker-maven-travis-ci:v.1.2.3
+  - docker push thiethaa/student-docker-maven:v.1.3.3
