@@ -63,7 +63,7 @@
                             <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 <!-- ***********************************************************************************************************-->
                             <repository>thiethaa/${project.artifactId}</repository>
-                            <tag>v.2.0.local</tag>
+                            <tag>v.3.0.jenkins</tag>
                             <buildArgs>
                                 <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                             </buildArgs>
