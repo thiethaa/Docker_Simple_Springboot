@@ -2,19 +2,16 @@ language: java
 jdk:
   - openjdk8
 
-services:
-  - docker
-
 # Pre-testing installs
 install:
   - echo "installed nothing....."
 
 # Scripts to be run such as tests
 before_script:
-  - echo "before script is nothiiiiing...."
+  - echo "testing...."
 
 script:
-  - mvn clean install
+  - mvn clean test
 
 #before_deploy:
 #  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
